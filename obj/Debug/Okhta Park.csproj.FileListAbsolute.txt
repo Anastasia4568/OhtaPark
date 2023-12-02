@@ -1,0 +1,34 @@
+D:\Asya\ПП 4 курс\Okhta Park\bin\Debug\Okhta Park.exe.config
+D:\Asya\ПП 4 курс\Okhta Park\bin\Debug\Okhta Park.exe
+D:\Asya\ПП 4 курс\Okhta Park\bin\Debug\Okhta Park.pdb
+D:\Asya\ПП 4 курс\Okhta Park\bin\Debug\EntityFramework.dll
+D:\Asya\ПП 4 курс\Okhta Park\bin\Debug\EntityFramework.SqlServer.dll
+D:\Asya\ПП 4 курс\Okhta Park\bin\Debug\EntityFramework.xml
+D:\Asya\ПП 4 курс\Okhta Park\bin\Debug\EntityFramework.SqlServer.xml
+D:\Asya\ПП 4 курс\Okhta Park\bin\Debug\ru\EntityFramework.resources.dll
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park.csproj.AssemblyReference.cache
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park.csproj.SuggestedBindingRedirects.cache
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\MainWindow.g.cs
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\App.g.cs
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park_Content.g.cs
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park_MarkupCompile.cache
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park_MarkupCompile.lref
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\App.baml
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\MainWindow.baml
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park.g.resources
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta_Park.Properties.Resources.resources
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park.csproj.GenerateResource.cache
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park.csproj.CoreCompileInputs.cache
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park.csproj.CopyComplete
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park.exe
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\Okhta Park.pdb
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\AdministratorWindow.g.cs
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\AssistentWindow.g.cs
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\AdministratorWindow.baml
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\AssistentWindow.baml
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\AddClientWindow.g.cs
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\AddServiceWindow.g.cs
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\SelectClientWindow.g.cs
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\AddClientWindow.baml
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\AddServiceWindow.baml
+D:\Asya\ПП 4 курс\Okhta Park\obj\Debug\SelectClientWindow.baml

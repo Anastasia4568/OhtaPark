@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ParkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PassportSerialNumber" Type="Int32" />
+    <Property Name="PassportNumber" Type="Int32" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order" Relationship="Self.FK__Order__ClientId__32E0915F" FromRole="Client" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="EnterType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Worker" Relationship="Self.FK__Worker__EnterTyp__31EC6D26" FromRole="EnterType" ToRole="Worker" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DateStart" Type="DateTime" Precision="3" />
+    <Property Name="ClientId" Type="Int32" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="DateEnd" Type="DateTime" Precision="0" />
+    <Property Name="Time" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Order__ClientId__32E0915F" FromRole="Order" ToRole="Client" />
+    <NavigationProperty Name="Status" Relationship="Self.FK__Order__StatusId__33D4B598" FromRole="Order" ToRole="Status" />
+    <NavigationProperty Name="OrderServices" Relationship="Self.FK__OrderServ__Order__4AB81AF0" FromRole="Order" ToRole="OrderServices" />
+  </EntityType>
+  <EntityType Name="OrderServices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="ServiceId" Type="Int32" />
+    <NavigationProperty Name="Order" Relationship="Self.FK__OrderServ__Order__4AB81AF0" FromRole="OrderServices" ToRole="Order" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__OrderServ__Servi__49C3F6B7" FromRole="OrderServices" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PricePerHour" Type="Double" />
+    <NavigationProperty Name="OrderServices" Relationship="Self.FK__OrderServ__Servi__49C3F6B7" FromRole="Service" ToRole="OrderServices" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order" Relationship="Self.FK__Order__StatusId__33D4B598" FromRole="Status" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="WorkerTypeId" Type="Int32" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastEnter" Type="DateTime" Precision="3" />
+    <Property Name="EnterTypeId" Type="Int32" />
+    <NavigationProperty Name="EnterType" Relationship="Self.FK__Worker__EnterTyp__31EC6D26" FromRole="Worker" ToRole="EnterType" />
+    <NavigationProperty Name="WorkerType" Relationship="Self.FK__Worker__WorkerTy__30F848ED" FromRole="Worker" ToRole="WorkerType" />
+  </EntityType>
+  <EntityType Name="WorkerType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Worker" Relationship="Self.FK__Worker__WorkerTy__30F848ED" FromRole="WorkerType" ToRole="Worker" />
+  </EntityType>
+  <Association Name="FK__Order__ClientId__32E0915F">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Worker__EnterTyp__31EC6D26">
+    <End Role="EnterType" Type="Self.EnterType" Multiplicity="0..1" />
+    <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EnterType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="EnterTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__StatusId__33D4B598">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderServ__Order__4AB81AF0">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="OrderServices" Type="Self.OrderServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderServices">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderServ__Servi__49C3F6B7">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="OrderServices" Type="Self.OrderServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderServices">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Worker__WorkerTy__30F848ED">
+    <End Role="WorkerType" Type="Self.WorkerType" Multiplicity="0..1" />
+    <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkerType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="WorkerTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ParkEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="EnterType" EntityType="Self.EnterType" />
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="OrderServices" EntityType="Self.OrderServices" />
+    <EntitySet Name="Service" EntityType="Self.Service" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="Worker" EntityType="Self.Worker" />
+    <EntitySet Name="WorkerType" EntityType="Self.WorkerType" />
+    <AssociationSet Name="FK__Order__ClientId__32E0915F" Association="Self.FK__Order__ClientId__32E0915F">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Worker__EnterTyp__31EC6D26" Association="Self.FK__Worker__EnterTyp__31EC6D26">
+      <End Role="EnterType" EntitySet="EnterType" />
+      <End Role="Worker" EntitySet="Worker" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__StatusId__33D4B598" Association="Self.FK__Order__StatusId__33D4B598">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderServ__Order__4AB81AF0" Association="Self.FK__OrderServ__Order__4AB81AF0">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderServices" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderServ__Servi__49C3F6B7" Association="Self.FK__OrderServ__Servi__49C3F6B7">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="OrderServices" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Worker__WorkerTy__30F848ED" Association="Self.FK__Worker__WorkerTy__30F848ED">
+      <End Role="WorkerType" EntitySet="WorkerType" />
+      <End Role="Worker" EntitySet="Worker" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

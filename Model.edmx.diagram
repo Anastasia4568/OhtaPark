@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9cb6f702980a4394ae26c8562c33be78" Name="Diagram1">
+        <EntityTypeShape EntityType="ParkModel.Client" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkModel.EnterType" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkModel.Order" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkModel.OrderServices" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkModel.Service" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkModel.Status" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkModel.Worker" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkModel.WorkerType" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="ParkModel.FK__Order__ClientId__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkModel.FK__Worker__EnterTyp__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkModel.FK__Order__StatusId__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkModel.FK__OrderServ__Order__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkModel.FK__OrderServ__Servi__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkModel.FK__Worker__WorkerTy__30F848ED" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

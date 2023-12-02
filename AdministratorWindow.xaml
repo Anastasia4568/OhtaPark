@@ -1,0 +1,99 @@
+﻿<Window x:Class="Okhta_Park.AdministratorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Okhta_Park"
+        mc:Ignorable="d"
+        Icon="logo.ico"        
+        Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="{StaticResource SecondaryColor}">
+
+            <Grid Grid.Row="0" Background="{StaticResource SecondaryColor}">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="7.5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Source="logo.png"/>
+                <TextBlock Grid.Column="1" FontSize="64" Text="Окно историй входа"/>
+                <Button x:Name="Cancel" Grid.Column="2" Content="Назад" Click="Cancel_Click"/>
+
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
+
+                <UniformGrid Grid.Row="0" Columns="2">
+                    <TextBlock Text="Поиск по логину:"/>
+                    <TextBox x:Name="SearchInput" TextChanged="SearchInput_TextChanged"/>
+                </UniformGrid>
+
+                <DataGrid x:Name="Info" Grid.Row="1" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding ClientId}" Width="160">
+                            <DataGridTextColumn.Header>
+                                <TextBlock FontSize="20" Text="Номер клиента"/>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Login}" Width="210">
+                            <DataGridTextColumn.Header>
+                                <TextBlock FontSize="20" Text="Логин клиента"/>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding DateStart}" Width="140">
+                            <DataGridTextColumn.Header>
+                                <TextBlock FontSize="20" Text="Дата начала"/>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Status}" Width="80">
+                            <DataGridTextColumn.Header>
+                                <TextBlock FontSize="20" Text="Статус"/>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding DateEnd}" Width="170">
+                            <DataGridTextColumn.Header>
+                                <TextBlock FontSize="20" Text="Дата окончания"/>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Time}" Width="160">
+                            <DataGridTextColumn.Header>
+                                <TextBlock FontSize="20" Text="Время проката"/>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Services}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock FontSize="20" Text="Услуги"/>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <UniformGrid Grid.Row="2" Columns="2">
+                    <TextBlock Text="Остаток времени:"/>
+                    <TextBlock x:Name="TimerOutput"/>
+                </UniformGrid>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
